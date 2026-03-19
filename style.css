@@ -1,0 +1,60 @@
+:root {
+    --verde-coco: #3a5a40;
+    --fibra: #a47148;
+    --crema: #fefae0;
+    --oscuro: #344e41;
+}
+
+* { margin:0; padding:0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+
+html { scroll-behavior: smooth; }
+
+/* Navegación */
+.navbar {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1rem 5%; background: #fff; position: fixed; width: 100%; top:0; z-index: 100;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.logo { font-weight: bold; font-size: 1.5rem; color: var(--verde-coco); }
+.logo span { color: var(--fibra); }
+
+.nav-links { display: flex; list-style: none; }
+.nav-links a { text-decoration: none; color: var(--oscuro); margin: 0 15px; font-weight: 500; }
+
+.social-top a { margin-left: 10px; color: var(--verde-coco); font-size: 1.2rem; }
+
+/* Hero */
+.hero {
+    height: 100vh; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&q=80') center/cover;
+    display: flex; align-items: center; justify-content: center; text-align: center; color: white;
+}
+
+.hero h1 { font-size: 3rem; margin-bottom: 1rem; }
+.hero p { font-size: 1.2rem; margin-bottom: 2rem; max-width: 700px; }
+
+/* Botones */
+.btn-primary { background: #25d366; color: white; padding: 15px 30px; text-decoration: none; border-radius: 50px; font-weight: bold; margin: 5px; display: inline-block; }
+.btn-outline { border: 2px solid white; color: white; padding: 13px 30px; text-decoration: none; border-radius: 50px; margin: 5px; display: inline-block; }
+
+/* Tarjetas UX/UI */
+.features { padding: 100px 10%; background: var(--crema); text-align: center; }
+.feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 40px; }
+.card { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+.card .icon { font-size: 3rem; margin-bottom: 15px; }
+
+/* Contacto y Redes */
+.contact-section { padding: 80px 10%; text-align: center; background: white; }
+.contact-grid { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin-top: 30px; }
+.contact-btn { padding: 15px 25px; border-radius: 10px; text-decoration: none; color: white; font-weight: bold; min-width: 180px; transition: 0.3s; }
+.wa { background: #25d366; }
+.fb { background: #1877f2; }
+.ig { background: #e4405f; }
+.contact-btn:hover { transform: scale(1.05); filter: brightness(1.1); }
+
+footer { background: var(--oscuro); color: white; padding: 20px; text-align: center; }
+
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hero h1 { font-size: 2rem; }
+}
