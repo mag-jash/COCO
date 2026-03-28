@@ -143,7 +143,23 @@
         <i class="fas fa-shopping-basket"></i>
         <span id="cart-count">0</span> productos - $<span id="cart-total">0</span>
     </button>
+ </script>
+      <div class="review-form">
+        <h3>Cuéntanos tu experiencia</h3>
+        <input type="text" id="rev-name" placeholder="Tu nombre o el de tu gato">
+        <textarea id="rev-text" placeholder="¿Qué te pareció Coco Garra?"></textarea>
+        <button class="btn-add" onclick="submitReview()">Publicar Opinión</button>
+    </div>
 
+    <div id="reviews-container" class="reviews-grid">
+        <div class="review-card">
+            <p>"A mi gato Lucas le encantó, y lo mejor es que ya no hay polvo por toda la casa. ¡Súper recomendado!"</p>
+            <h4>- Mariana G.</h4>
+        </div>
+        <div class="review-card">
+            <p>"Increíble el control de olores. Me encanta que sea biodegradable."</p>
+            <h4>- Roberto S.</h4>
+        </div>
     <footer>
         <p>© 2026 Coco Garra | Innovación en transformación de coco.</p>
     </footer>
@@ -208,22 +224,6 @@
         alert("Por favor, llena ambos campos.");
     }
 }
-    </script>
-      <div class="review-form">
-        <h3>Cuéntanos tu experiencia</h3>
-        <input type="text" id="rev-name" placeholder="Tu nombre o el de tu gato">
-        <textarea id="rev-text" placeholder="¿Qué te pareció Coco Garra?"></textarea>
-        <button class="btn-add" onclick="submitReview()">Publicar Opinión</button>
-    </div>
-
-    <div id="reviews-container" class="reviews-grid">
-        <div class="review-card">
-            <p>"A mi gato Lucas le encantó, y lo mejor es que ya no hay polvo por toda la casa. ¡Súper recomendado!"</p>
-            <h4>- Mariana G.</h4>
-        </div>
-        <div class="review-card">
-            <p>"Increíble el control de olores. Me encanta que sea biodegradable."</p>
-            <h4>- Roberto S.</h4>
-        </div>
+   
 </body>
 </html>
