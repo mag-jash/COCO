@@ -187,6 +187,29 @@
             message += `%0ATotal: $${totalValue}%0A¿Me podrían dar información para el pago?`;
             window.open(`https://wa.me/527297276189?text=${message}`, '_blank');
         }
+        function submitReview() {
+    const name = document.getElementById('rev-name').value;
+    const text = document.getElementById('rev-text').value;
+    const container = document.getElementById('reviews-container');
+
+    if (name && text) {
+        // Crear la nueva tarjeta de opinión
+        const newReview = document.createElement('div');
+        newReview.className = 'review-card';
+        newReview.innerHTML = `<p>"${text}"</p><h4>- ${name}</h4>`;
+
+        // Agregar al inicio del contenedor
+        container.prepend(newReview);
+
+        // Limpiar campos
+        document.getElementById('rev-name').value = '';
+        document.getElementById('rev-text').value = '';
+        
+        alert("¡Gracias por tu opinión!");
+    } else {
+        alert("Por favor, llena ambos campos.");
+    }
+}
     </script>
       <div class="review-form">
         <h3>Cuéntanos tu experiencia</h3>
