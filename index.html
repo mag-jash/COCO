@@ -138,7 +138,16 @@
             <a href="https://www.instagram.com/cocogarra_" class="contact-btn ig" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
         </div>
     </section>
-     <div class="review-form">
+    <button id="cart-button" onclick="checkout()">
+        <i class="fas fa-shopping-basket"></i>
+        <span id="cart-count">0</span> productos - $<span id="cart-total">0</span>
+    </button>
+ </script>
+     
+    <footer>
+        <p>© 2026 Coco Garra | Innovación en transformación de coco.</p>
+    </footer>
+  <div class="review-form">
         <h3>Cuéntanos tu experiencia</h3>
         <input type="text" id="rev-name" placeholder="Tu nombre o el de tu gato">
         <textarea id="rev-text" placeholder="¿Qué te pareció Coco Garra?"></textarea>
@@ -153,16 +162,6 @@
             <p>"Increíble el control de olores. Me encanta que sea biodegradable."</p>
             <h4>- Roberto S.</h4>
         </div>
-    <button id="cart-button" onclick="checkout()">
-        <i class="fas fa-shopping-basket"></i>
-        <span id="cart-count">0</span> productos - $<span id="cart-total">0</span>
-    </button>
- </script>
-     
-    <footer>
-        <p>© 2026 Coco Garra | Innovación en transformación de coco.</p>
-    </footer>
-
     <script>
         let cart = [];
         
