@@ -20,24 +20,7 @@
         /* Carrito Flotante */
         #cart-button { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; padding: 15px 25px; border-radius: 50px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); z-index: 1001; cursor: pointer; display: none; align-items: center; gap: 10px; font-weight: bold; border: none; }
     </style><section id="opiniones" class="reviews-section">
-    <h2 class="section-title">Lo que dicen los Cat-Lovers</h2>
-    
-    <div class="review-form">
-        <h3>Cuéntanos tu experiencia</h3>
-        <input type="text" id="rev-name" placeholder="Tu nombre o el de tu gato">
-        <textarea id="rev-text" placeholder="¿Qué te pareció Coco Garra?"></textarea>
-        <button class="btn-add" onclick="submitReview()">Publicar Opinión</button>
-    </div>
-
-    <div id="reviews-container" class="reviews-grid">
-        <div class="review-card">
-            <p>"A mi gato Lucas le encantó, y lo mejor es que ya no hay polvo por toda la casa. ¡Súper recomendado!"</p>
-            <h4>- Mariana G.</h4>
-        </div>
-        <div class="review-card">
-            <p>"Increíble el control de olores. Me encanta que sea biodegradable."</p>
-            <h4>- Roberto S.</h4>
-        </div>
+    <h2 class="section-title">Lo que dicen los Cat-Lovers</h2
     </div>
 </section>
 </head>
@@ -205,5 +188,21 @@
             window.open(`https://wa.me/527297276189?text=${message}`, '_blank');
         }
     </script>
+      <div class="review-form">
+        <h3>Cuéntanos tu experiencia</h3>
+        <input type="text" id="rev-name" placeholder="Tu nombre o el de tu gato">
+        <textarea id="rev-text" placeholder="¿Qué te pareció Coco Garra?"></textarea>
+        <button class="btn-add" onclick="submitReview()">Publicar Opinión</button>
+    </div>
+
+    <div id="reviews-container" class="reviews-grid">
+        <div class="review-card">
+            <p>"A mi gato Lucas le encantó, y lo mejor es que ya no hay polvo por toda la casa. ¡Súper recomendado!"</p>
+            <h4>- Mariana G.</h4>
+        </div>
+        <div class="review-card">
+            <p>"Increíble el control de olores. Me encanta que sea biodegradable."</p>
+            <h4>- Roberto S.</h4>
+        </div>
 </body>
 </html>
