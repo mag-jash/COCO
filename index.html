@@ -6,6 +6,20 @@
     <title>Coco Garra | Sustrato Ecológico para Gatos</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Estilos adicionales para la tienda */
+        .products-section { padding: 80px 10%; background: #fff; text-align: center; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px; }
+        .product-card { background: #fefae0; border-radius: 20px; padding: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s; }
+        .product-card:hover { transform: translateY(-10px); }
+        .product-card img { width: 100%; border-radius: 15px; height: 300px; object-fit: cover; margin-bottom: 15px; }
+        .product-price { font-size: 1.5rem; color: #3a5a40; font-weight: bold; margin: 10px 0; }
+        .btn-add { background: #3a5a40; color: white; border: none; padding: 12px 25px; border-radius: 50px; cursor: pointer; font-weight: bold; width: 100%; transition: 0.3s; }
+        .btn-add:hover { background: #a47148; }
+
+        /* Carrito Flotante */
+        #cart-button { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; padding: 15px 25px; border-radius: 50px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); z-index: 1001; cursor: pointer; display: none; align-items: center; gap: 10px; font-weight: bold; border: none; }
+    </style>
 </head>
 <body>
 
@@ -17,6 +31,7 @@
         
         <ul class="nav-links">
             <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#productos">Productos</a></li>
             <li><a href="#beneficios">Beneficios</a></li>
             <li><a href="#ubicacion">Ubicación</a></li>
             <li><a href="#contacto">Contacto</a></li>
@@ -33,16 +48,40 @@
         <div class="hero-content">
             <h1>Revolucionando el cuidado de mascotas</h1>
             <p>Sustrato de fibra de coco: 100% natural, biodegradable y libre de polvos.</p>
-            <p>
-Coco Garra es una empresa cien por ciento innovadora en cuanto a la transformación y comercialización de productos del coco para especializarse en el sector de cuidado de animales domésticos. Dicho esto, el corazón de nuestra empresa es la producción de sustrato de fibra de coco de alta calidad creada para reemplazar la arena de gatos convencional.
-
-En Coco Garra, se aprovechan las propiedades naturales del sustrato de coco un recurso renovable y a menudo desperdiciado para procesarlo y donde se garantiza la eliminación de impurezas, generando una textura óptima para las patas de los felinos. Nuestro proceso se enfoca en mantener la integridad de la fibra, su capacidad natural de absorción y control de olores sin necesidad de añadir químicos o fragancias artificiales que puedan afectar la salud de la mascota. </p>
+            <p>Empresa innovadora dedicada a la transformación de coco para el cuidado animal.</p>
             <div class="cta-container">
-                <a href="https://wa.me/527297276189" class="btn-primary" target="_blank"><i class="fab fa-whatsapp"></i> Haz tu pedido</a>
+                <a href="#productos" class="btn-primary"><i class="fas fa-shopping-cart"></i> Ver Tienda</a>
                 <a href="#beneficios" class="btn-outline">Ver beneficios</a>
             </div>
         </div>
     </header>
+
+    <section id="productos" class="products-section">
+        <h2 class="section-title">Nuestras Presentaciones</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="WhatsApp Image 2026-03-27 at 6.24.47 PM.jpeg" alt="Coco Garra 2kg">
+                <h3>Coco Garra 2kg</h3>
+                <p>Bolsa de papel ecológica.</p>
+                <div class="product-price">$250.00</div>
+                <button class="btn-add" onclick="addToCart('Coco Garra 2kg', 250)">Añadir al carrito</button>
+            </div>
+            <div class="product-card">
+                <img src="WhatsApp Image 2026-03-27 at 6.24.47 PM (1).jpeg" alt="Coco Garra 1kg">
+                <h3>Coco Garra 1kg</h3>
+                <p>Empaque Stand-up Pouch.</p>
+                <div class="product-price">$130.00</div>
+                <button class="btn-add" onclick="addToCart('Coco Garra 1kg', 130)">Añadir al carrito</button>
+            </div>
+            <div class="product-card">
+                <img src="WhatsApp Image 2026-03-27 at 6.24.47 PM (2).jpeg" alt="Coco Garra 10kg">
+                <h3>Coco Garra 10kg</h3>
+                <p>Costal de yute premium.</p>
+                <div class="product-price">$1,100.00</div>
+                <button class="btn-add" onclick="addToCart('Coco Garra 10kg', 1100)">Añadir al carrito</button>
+            </div>
+        </div>
+    </section>
 
     <section id="beneficios" class="features">
         <h2 class="section-title">Innovación en cada fibra</h2>
@@ -50,54 +89,33 @@ En Coco Garra, se aprovechan las propiedades naturales del sustrato de coco un r
             <div class="card">
                 <div class="icon">♻️</div>
                 <h3>Biodegradabilidad</h3>
-                <p>Nuestro sustrato se reintegra a la tierra de manera segura. Es compostable y cuida el medio ambiente.</p>
-                <p>
-La función principal de Coco-Garra es absorber la humedad y neutralizar los malos olores de los desechos felinos, proporcionando un entorno limpio, cómodo y saludable para los gatos, gracias al uso de fibra de coco natural y neutralizadores orgánicos</p>
+                <p>Compostable y amigable con el planeta.</p>
             </div>
             <div class="card">
                 <div class="icon">🚀</div>
                 <h3>Rendimiento Superior</h3>
-                <p>Capacidad de absorción 4 veces mayor a su peso. Ahorro real y mayor duración.</p>
-                <p>Presentación: Empaque resistente y práctico, diseñado para proteger el producto.
-
-<li>Contenido: Arena ecológica elaborada a partir de fibra y cáscara de coco.</li>
-
-<li>Color del producto: Tonos naturales café, sin colorantes artificiales.</li>
-
-<li>Granulometría: Tamaño de grano uniforme que permite una correcta absorción y un buen aglutinamiento.</li>
-
-<li>Aroma: Neutro y natural, sin fragancias químicas añadidas.</li>
-
-<li>Condiciones físicas: Producto seco, limpio y libre de impurezas visibles</li></p>
+                <p>Absorción 4 veces mayor a su peso original.</p>
             </div>
             <div class="card">
                 <div class="icon">🛡️</div>
                 <h3>Higiene Natural</h3>
-                <p>Entorno limpio, libre de hongos y bacterias. Protege las vías respiratorias de tu gato.</p>
+                <p>Libre de polvos y químicos artificiales.</p>
             </div>
         </div>
     </section>
-<section id="ubicacion" class="location">
-    <div class="location-card">
-        <h2>Nuestra Ubicación</h2>
-        <p><i class="fas fa-map-marker-alt"></i> 1ª Cerrada Rafaela Nájera, Barrio de Santiaguito, Ocoyoacac, Estado de México, C.P. 52755.</p>
-        
-        <div class="map-box">
-            <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3765.4321!2d-99.4589!3d19.2736!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cd8d3f66f6f8f5%3A0x123456789!2zMcKqIENlcnJhZGEgUmFmYWVsYSBOw6FqZXJhLCBPY295b2FjYWMsIE3DqXhpY28!5e0!3m2!1ses!2smx!4v1700000000000!5m2!1ses!2smx" 
-                width="100%" 
-                height="100%" 
-                style="border:0; display:block;" 
-                allowfullscreen="" 
-                loading="lazy">
-            </iframe>
+
+    <section id="ubicacion" class="location">
+        <div class="location-card">
+            <h2>Nuestra Ubicación</h2>
+            <p><i class="fas fa-map-marker-alt"></i> 1ª Cerrada Rafaela Nájera, Ocoyoacac, Edo. Méx.</p>
+            <div class="map-box">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3765.234!2d-99.458!3d19.274!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDE2JzI2LjQiTiA5OcKwMjcnMjguOCJX!5e0!3m2!1ses!2smx!4v1648000000000!5m2!1ses!2smx" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <section id="contacto" class="contact-section">
         <h2>Únete a nuestra comunidad</h2>
-        <p>¿Tienes dudas? Escríbenos directamente o síguenos en redes.</p>
         <div class="contact-grid">
             <a href="https://wa.me/527297276189" class="contact-btn wa" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
             <a href="https://www.facebook.com/profile.php?id=61587906994971" class="contact-btn fb" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a>
@@ -105,9 +123,52 @@ La función principal de Coco-Garra es absorber la humedad y neutralizar los mal
         </div>
     </section>
 
+    <button id="cart-button" onclick="checkout()">
+        <i class="fas fa-shopping-basket"></i>
+        <span id="cart-count">0</span> productos - $<span id="cart-total">0</span>
+    </button>
+
     <footer>
-        <p>&copy; 2026 Coco Garra | Innovación en transformación de coco.</p>
+        <p>© 2026 Coco Garra | Innovación en transformación de coco.</p>
     </footer>
 
+    <script>
+        let cart = [];
+        
+        function addToCart(name, price) {
+            cart.push({name, price});
+            updateCart();
+        }
+
+        function updateCart() {
+            const btn = document.getElementById('cart-button');
+            const count = document.getElementById('cart-count');
+            const total = document.getElementById('cart-total');
+            
+            if(cart.length > 0) {
+                btn.style.display = 'flex';
+                count.innerText = cart.length;
+                const totalValue = cart.reduce((sum, item) => sum + item.price, 0);
+                total.innerText = totalValue;
+            }
+        }
+
+        function checkout() {
+            const totalValue = cart.reduce((sum, item) => sum + item.price, 0);
+            let message = "¡Hola Coco Garra! Me interesa comprar:%0A";
+            
+            const summary = cart.reduce((acc, curr) => {
+                acc[curr.name] = (acc[curr.name] || 0) + 1;
+                return acc;
+            }, {});
+
+            for (const [product, qty] of Object.entries(summary)) {
+                message += `- ${qty}x ${product}%0A`;
+            }
+
+            message += `%0ATotal: $${totalValue}%0A¿Me podrían dar información para el pago?`;
+            window.open(`https://wa.me/527297276189?text=${message}`, '_blank');
+        }
+    </script>
 </body>
 </html>
