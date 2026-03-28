@@ -88,11 +88,12 @@ html {
     color: var(--fibra);
 }
 
-/* --- HERO SECTION --- */
+/* --- HERO SECTION ACTUALIZADA --- */
 .hero {
     height: 100vh; 
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                url('https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&q=80') center/cover;
+    /* Hemos cambiado la URL y añadido una capa oscura (rgba 0.5) para que el texto blanco resalte */
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                url('WhatsApp Image 2026-03-26 at 10.03.08 PM.jpeg') center/cover no-repeat fixed;
     display: flex; 
     align-items: center; 
     justify-content: center; 
