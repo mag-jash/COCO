@@ -77,3 +77,68 @@ function sendWhatsApp() {
     
     window.open(`https://wa.me/527297276189?text=${message}`, '_blank');
 }
+  function submitReview() {
+
+        // Obtenemos los elementos
+
+        const nameInput = document.getElementById('rev-name');
+
+        const textInput = document.getElementById('rev-text');
+
+        const container = document.getElementById('reviews-container');
+
+        // Validamos que no estén vacíos o solo con espacios
+
+        const name = nameInput.value.trim();
+
+        const text = textInput.value.trim();
+
+        if (name !== "" && text !== "") {
+
+            // Crear el elemento div de la tarjeta
+
+            const newReview = document.createElement('div');
+
+            newReview.className = 'review-card';
+
+            // Usamos innerText para el contenido y evitamos inyección de código (XSS)
+
+            newReview.innerHTML = `<p>"${text}"</p><h4>- ${name}</h4>`;
+
+            // Agregar al inicio con una pequeña animación si tienes CSS
+
+            container.prepend(newReview);
+
+            // Limpiar los campos después de publicar
+
+
+
+            nameInput.value = '';
+
+
+
+            textInput.value = '';
+
+
+
+            
+
+
+
+            alert("¡Gracias por tu opinión!");
+
+
+
+        } else {
+
+
+
+            alert("Por favor, llena ambos campos antes de publicar.");
+
+
+
+        }
+
+
+
+    }
