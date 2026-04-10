@@ -1,349 +1,174 @@
 :root {
-
     --verde-coco: #3a5a40;
-
     --fibra: #a47148;
-
     --crema: #fefae0;
-
     --oscuro: #344e41;
-
     --blanco: #ffffff;
-
 }
-
-
 
 * { 
-
     margin: 0; 
-
     padding: 0; 
-
     box-sizing: border-box; 
-
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-
 }
-
-
 
 html { 
-
     scroll-behavior: smooth; 
-
 }
-
-
 
 /* --- NAVEGACIÓN --- */
-
 .navbar {
-
     display: flex; 
-
     justify-content: space-between; 
-
     align-items: center;
-
     padding: 0.8rem 5%; 
-
     background: var(--blanco); 
-
     position: fixed; 
-
     width: 100%; 
-
     top: 0; 
-
     z-index: 1000;
-
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-
 }
-
-
 
 .logo-container {
-
     display: flex;
-
     align-items: center;
-
     gap: 12px; /* Espacio entre el logo circular y el texto */
-
 }
-
-
 
 .logo-img {
-
     height: 50px; /* Tamaño ideal para que no se vea tosco */
-
     width: auto;
-
     border-radius: 50%; /* Asegura que se mantenga circular */
-
     border: 2px solid var(--verde-coco);
-
     transition: transform 0.3s ease;
-
 }
-
-
 
 .logo-img:hover {
-
     transform: rotate(10deg) scale(1.1);
-
 }
-
-
 
 .logo { 
-
     font-weight: 800; 
-
     font-size: 1.4rem; 
-
     color: var(--verde-coco); 
-
     letter-spacing: -0.5px;
-
 }
-
-
 
 .logo span { 
-
     color: var(--fibra); 
-
 }
-
-
 
 .nav-links { 
-
     display: flex; 
-
     list-style: none; 
-
 }
-
-
 
 .nav-links a { 
-
     text-decoration: none; 
-
     color: var(--oscuro); 
-
     margin: 0 15px; 
-
     font-weight: 600; 
-
     transition: 0.3s;
-
 }
-
-
 
 .nav-links a:hover { 
-
     color: var(--fibra); 
-
 }
-
-
 
 .social-top a { 
-
     margin-left: 12px; 
-
     color: var(--verde-coco); 
-
     font-size: 1.3rem; 
-
     transition: 0.3s;
-
 }
-
-
 
 .social-top a:hover {
-
     color: var(--fibra);
-
 }
-
-
 
 /* --- HERO SECTION ACTUALIZADA --- */
-
 .hero {
-
     height: 100vh; 
-
     /* Hemos cambiado la URL y añadido una capa oscura (rgba 0.5) para que el texto blanco resalte */
-
     background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-
-                url('WhatsApp Image 2026-03-26 at 10.03.08 PM.jpeg') center/cover no-repeat fixed;
-
+                url('WhatsApp Image 2026-04-09 at 7.35.34 PM (1).jpeg') center/cover no-repeat fixed;
     display: flex; 
-
     align-items: center; 
-
     justify-content: center; 
-
     text-align: center; 
-
     color: var(--blanco);
-
     padding-top: 60px;
-
 }
-
-
 
 .hero h1 { 
-
     font-size: 3.5rem; 
-
     margin-bottom: 1rem; 
-
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-
 }
-
-
 
 .hero p { 
-
     font-size: 1.3rem; 
-
     margin-bottom: 2rem; 
-
     max-width: 700px; 
-
     line-height: 1.6;
-
 }
-
-
 
 /* --- BOTONES --- */
-
 .btn-primary { 
-
     background: #25d366; 
-
     color: white; 
-
     padding: 15px 35px; 
-
     text-decoration: none; 
-
     border-radius: 50px; 
-
     font-weight: bold; 
-
     margin: 8px; 
-
     display: inline-block; 
-
     transition: 0.3s;
-
 }
-
-
-
 .btn-outline { 
-
     border: 2px solid var(--blanco); 
-
     color: var(--blanco); 
-
     padding: 13px 35px; 
-
     text-decoration: none; 
-
     border-radius: 50px; 
-
     margin: 8px; 
-
     display: inline-block; 
-
     transition: 0.3s;
-
 }
-
-
 
 .btn-primary:hover, .btn-outline:hover {
-
     transform: translateY(-3px);
-
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-
 }
-
-
 
 /* --- TARJETAS (CARACTERÍSTICAS) --- */
-
 .features { 
-
     padding: 100px 10%; 
-
     background: var(--crema); 
-
     text-align: center; 
-
 }
-
-
 
 .section-title {
-
     font-size: 2.5rem;
-
     color: var(--oscuro);
-
     margin-bottom: 50px;
-
 }
-
-
 
 .feature-grid { 
-
     display: grid; 
-
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-
     gap: 25px; 
-
 }
-
-
 
 .card { 
-
     background: var(--blanco); 
-
-    padding: 40px; 
-
+    padding: 40px;
     border-radius: 25px; 
-
     box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
-
     transition: 0.4s ease;
-
 }
-
-
-
 .card:hover {
 
     transform: translateY(-10px);
