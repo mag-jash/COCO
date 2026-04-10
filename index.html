@@ -1,388 +1,182 @@
 <!DOCTYPE html>
-
 <html lang="es">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Coco Garra | Sustrato Ecológico para Gatos</title>
-
     <link rel="stylesheet" href="style.css">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
     <style>
-
         /* Estilos adicionales para la tienda */
-
         .products-section { padding: 80px 10%; background: #fff; text-align: center; }
-
         .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px; }
-
         .product-card { background: #fefae0; border-radius: 20px; padding: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s; }
-
         .product-card:hover { transform: translateY(-10px); }
-
         .product-card img { width: 100%; border-radius: 15px; height: 300px; object-fit: cover; margin-bottom: 15px; }
-
         .product-price { font-size: 1.5rem; color: #3a5a40; font-weight: bold; margin: 10px 0; }
-
         .btn-add { background: #3a5a40; color: white; border: none; padding: 12px 25px; border-radius: 50px; cursor: pointer; font-weight: bold; width: 100%; transition: 0.3s; }
-
         .btn-add:hover { background: #a47148; }
 
 
 
         /* Carrito Flotante */
-
         #cart-button { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; padding: 15px 25px; border-radius: 50px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); z-index: 1001; cursor: pointer; display: none; align-items: center; gap: 10px; font-weight: bold; border: none; }
-
-    </style><section id="opiniones" class="reviews-section">
-
+         </style><section id="opiniones" class="reviews-section">
      <button id="cart-button" onclick="checkout()">
-
     <span>🛒 Ver Carrito (<span id="cart-count">0</span>)</span>
-
     <span>Total: $<span id="cart-total">0</span></span>
-
+          <div id="cartModal" class="cart-modal">
+    <div class="cart-content">
+    <span class="close-cart" onclick="toggleCart()">&times;</span>
+        <h2>Tu Carrito 🛒</h2>
+        <div id="cart-items-list">
+            </div>
+        <hr>
+        <div style="display: flex; justify-content: space-between; font-weight: bold; margin-top: 10px;">
+            <span>Total:</span>
+            <span>$<span id="modal-total">0</span></span>
+        </div>
+        <button class="btn-checkout" onclick="sendWhatsApp()">Finalizar Pedido por WhatsApp</button>
+    </div>
+</div>
 </button>
-
 </section>
-
 </head>
 
 <body>
-
-
-
     <nav class="navbar">
-
         <div class="logo-container">
-
             <img src="19b67264-285e-4088-8e0c-2950b6344b72.jpg" alt="Logo Coco Garra" class="logo-img">
-
             <div class="logo">COCO<span>GARRA</span></div>
-
         </div>
 
         
-
         <ul class="nav-links">
-
             <li><a href="#inicio">Inicio</a></li>
-
             <li><a href="#productos">Productos</a></li>
-
             <li><a href="#beneficios">Beneficios</a></li>
-
             <li><a href="#ubicacion">Ubicación</a></li>
-
             <li><a href="#contacto">Contacto</a></li>
-
         </ul>
 
-
-
         <div class="social-top">
-
             <a href="https://www.facebook.com/profile.php?id=61587906994971" target="_blank"><i class="fab fa-facebook"></i></a>
-
             <a href="https://www.instagram.com/cocogarra_" target="_blank"><i class="fab fa-instagram"></i></a>
-
             <a href="https://www.tiktok.com/@cocogarra" target="_blank"><i class="fab fa-tiktok"></i></a>
-
         </div>
-
     </nav>
 
-
-
     <header id="inicio" class="hero">
-
         <div class="hero-content">
-
             <h1>Revolucionando el cuidado de mascotas</h1>
-
             <p>Sustrato de fibra de coco: 100% natural, biodegradable y libre de polvos.</p>
-
             <p>Empresa innovadora dedicada a la transformación de coco para el cuidado animal.</p>
-
             <p>Coco Garra es una empresa cien por ciento innovadora en cuanto a la transformación y comercialización de productos del coco para especializarse en el sector de cuidado de animales domésticos. Dicho esto, el corazón de nuestra empresa es la producción de sustrato de fibra de coco de alta calidad creada para reemplazar la arena de gatos convencional.</p>
-
+           
             <div class="cta-container">
-
                 <a href="#productos" class="btn-primary"><i class="fas fa-shopping-cart"></i> Ver carrito</a>
-
                 <a href="#beneficios" class="btn-outline">Ver beneficios</a>
-
             </div>
-
         </div>
-
     </header>
 
 
 
     <section id="productos" class="products-section">
-
         <h2 class="section-title">Nuestras Presentaciones</h2>
-
         <div class="product-grid">
-
             <div class="product-card">
-
                 <img src="WhatsApp Image 2026-03-27 at 6.24.47 PM.jpeg" alt="Coco Garra 2kg">
-
                 <h3>Coco Garra 2kg</h3>
-
                 <p>Bolsa de papel ecológica.</p>
-
                 <div class="product-price">$250.00</div>
-
                 <button class="btn-add" onclick="addToCart('Coco Garra 2kg', 250)">Añadir al carrito</button>
-
             </div>
-
             <div class="product-card">
-
                 <img src="WhatsApp Image 2026-03-27 at 6.24.47 PM (1).jpeg" alt="Coco Garra 1kg">
-
                 <h3>Coco Garra 1kg</h3>
-
                 <p>Empaque Stand-up Pouch.</p>
-
                 <div class="product-price">$130.00</div>
-
                 <button class="btn-add" onclick="addToCart('Coco Garra 1kg', 130)">Añadir al carrito</button>
-
             </div>
-
             <div class="product-card">
-
                 <img src="WhatsApp Image 2026-03-27 at 6.24.47 PM (2).jpeg" alt="Coco Garra 10kg">
-
                 <h3>Coco Garra 10kg</h3>
-
                 <p>Costal de yute premium.</p>
-
                 <div class="product-price">$1,100.00</div>
-
                 <button class="btn-add" onclick="addToCart('Coco Garra 10kg', 1100)">Añadir al carrito</button>
-
             </div>
-
         </div>
-
     </section>
 
 
 
     <section id="beneficios" class="features">
-
         <h2 class="section-title">Innovación en cada fibra</h2>
-
         <div class="feature-grid">
-
             <div class="card">
-
               <img src=" WhatsApp Image 2026-04-09 at 7.35.34 PM.jpeg" alt="Coco Garra 10kg"> 
-
+              <img src=" WhatsApp Image 2026-04-09 at 9.22.58 PM.jpeg" alt="Coco Garra 10kg"> 
+              <video width="100%" controls poster="miniatura.jpg">
+              <source src="WhatsApp%20Video%202026-04-09%20at%209.22.53%20PM.mp4" type="video/mp4">
+            </video>
             </div>
-
-            
-
     </section>
-
-
 
     <section id="ubicacion" class="location">
-
         <div class="location-card">
-
             <h2>Nuestra Ubicación</h2>
-
             <p><i class="fas fa-map-marker-alt"></i> 1ª Cerrada Rafaela Nájera, Ocoyoacac, Edo. Méx.</p>
-
             <div class="map-box">
-
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3765.234!2d-99.458!3d19.274!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDE2JzI2LjQiTiA5OcKwMjcnMjguOCJX!5e0!3m2!1ses!2smx!4v1648000000000!5m2!1ses!2smx" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-
             </div>
-
         </div>
-
     </section>
-
-
 
     <section id="contacto" class="contact-section">
-
         <h2>Únete a nuestra comunidad</h2>
-
         <div class="contact-grid">
-
             <a href="https://wa.me/527297276189" class="contact-btn wa" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-
             <a href="https://www.facebook.com/profile.php?id=61587906994971" class="contact-btn fb" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a>
-
             <a href="https://www.instagram.com/cocogarra_" class="contact-btn ig" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
-
         </div>
-
     </section>
-
+    
     <button id="cart-button" onclick="checkout()">
-
         <i class="fas fa-shopping-basket"></i>
-
         <span id="cart-count">0</span> productos - $<span id="cart-total">0</span>
-
     </button>
-
+    
  </script>
 
-     
+    
 
-    <footer>
+ <div class="review-form">
+    <h3>Cuéntanos tu experiencia</h3>
+    <input type="text" id="rev-name" placeholder="Tu nombre o el de tu gato">
+    <textarea id="rev-text" placeholder="¿Qué te pareció Coco Garra?"></textarea>
+    <button type="button" class="btn-add" onclick="submitReview()">Publicar Opinión</button>
+</div>
+    
+<div id="reviews-container" class="reviews-grid">
+    <div class="review-card">
+        <p>"A mi gato Lucas le encantó, y lo mejor es que ya no hay polvo por toda la casa. ¡Súper recomendado!"</p>
+        <h4>- Mariana G.</h4>
+    </div>
+    <div class="review-card">
+        <p>"Increíble el control de olores. Me encanta que sea biodegradable."</p>
+        <h4>- Roberto S.</h4>
+    </div>
+</div>
+
+    
+    <script src="java.js"></script>
+    
+     <footer>
 
         <p>© 2026 Coco Garra | Innovación en transformación de coco.</p>
 
     </footer>
-
- <div class="review-form">
-
-    <h3>Cuéntanos tu experiencia</h3>
-
-    <input type="text" id="rev-name" placeholder="Tu nombre o el de tu gato">
-
-    <textarea id="rev-text" placeholder="¿Qué te pareció Coco Garra?"></textarea>
-
-    <button type="button" class="btn-add" onclick="submitReview()">Publicar Opinión</button>
-
-</div>
-
-
-
-<div id="reviews-container" class="reviews-grid">
-
-    <div class="review-card">
-
-        <p>"A mi gato Lucas le encantó, y lo mejor es que ya no hay polvo por toda la casa. ¡Súper recomendado!"</p>
-
-        <h4>- Mariana G.</h4>
-
-    </div>
-
-    <div class="review-card">
-
-        <p>"Increíble el control de olores. Me encanta que sea biodegradable."</p>
-
-        <h4>- Roberto S.</h4>
-
-    </div>
-
-</div>
-
-
-
-<script>
-
-    function submitReview() {
-
-        // Obtenemos los elementos
-
-        const nameInput = document.getElementById('rev-name');
-
-        const textInput = document.getElementById('rev-text');
-
-        const container = document.getElementById('reviews-container');
-
-
-
-        // Validamos que no estén vacíos o solo con espacios
-
-        const name = nameInput.value.trim();
-
-        const text = textInput.value.trim();
-
-
-
-        if (name !== "" && text !== "") {
-
-            // Crear el elemento div de la tarjeta
-
-            const newReview = document.createElement('div');
-
-            newReview.className = 'review-card';
-
-            
-
-            // Usamos innerText para el contenido y evitamos inyección de código (XSS)
-
-            newReview.innerHTML = `<p>"${text}"</p><h4>- ${name}</h4>`;
-
-
-
-            // Agregar al inicio con una pequeña animación si tienes CSS
-
-            container.prepend(newReview);
-
-
-
-            // Limpiar los campos después de publicar
-
-            nameInput.value = '';
-
-            textInput.value = '';
-
-            
-
-            alert("¡Gracias por tu opinión!");
-
-        } else {
-
-            alert("Por favor, llena ambos campos antes de publicar.");
-
-        }
-
-    }
-
-</script>
-
-    <script src="java.js"></script>
-
-    <div id="cartModal" class="cart-modal">
-
-    <div class="cart-content">
-
-        <span class="close-cart" onclick="toggleCart()">&times;</span>
-
-        <h2>Tu Carrito 🛒</h2>
-
-        <div id="cart-items-list">
-
-            </div>
-
-        <hr>
-
-        <div style="display: flex; justify-content: space-between; font-weight: bold; margin-top: 10px;">
-
-            <span>Total:</span>
-
-            <span>$<span id="modal-total">0</span></span>
-
-        </div>
-
-        <button class="btn-checkout" onclick="sendWhatsApp()">Finalizar Pedido por WhatsApp</button>
-
-    </div>
-
-</div>
-
 </body>
-
 </html>
 
