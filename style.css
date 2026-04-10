@@ -299,3 +299,26 @@ footer {
     font-family: inherit;
 }
 .review-form textarea { height: 80px; resize: none; }
+#cart-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #25d366; /* Color WhatsApp */
+    color: white;
+    padding: 15px 25px;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    z-index: 1001;
+    cursor: pointer;
+    display: none; /* Se activa por JS */
+    flex-direction: column; /* Apila el conteo y el total */
+    align-items: center;
+    border: none;
+    font-family: sans-serif;
+}
+
+#cart-button:hover {
+    background: #128c7e;
+    transform: scale(1.05);
+    transition: 0.3s;
+}
