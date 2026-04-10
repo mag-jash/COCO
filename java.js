@@ -1,52 +1,79 @@
-<script>
-    let cart = [];
+let cart = [];
+let total = 0;
 
-    function addToCart(name, price) {
-        // Añadimos el objeto al arreglo
-        cart.push({ name, price });
-        
-        // Ejecutamos la actualización visual
-        updateCartUI();
-        
-        // Opcional: una pequeña alerta visual o log
-        console.log(`Añadido: ${name}`);
+function addToCart(name, price) {
+    const existingProduct = cart.find(item => item.name === name);
+    
+    if (existingProduct) {
+        existingProduct.quantity += 1;
+    } else {
+        cart.push({ name, price, quantity: 1 });
     }
+    
+    updateCartUI();
+    
+    // Mostrar el botón flotante si hay algo
+    document.getElementById('cart-button').style.display = 'flex';
+}
 
-    function updateCartUI() {
-        const btn = document.getElementById('cart-button');
-        const countSpan = document.getElementById('cart-count');
-        const totalSpan = document.getElementById('cart-total');
+function updateCartUI() {
+    const cartCount = document.getElementById('cart-count');
+    const cartTotal = document.getElementById('cart-total');
+    const modalTotal = document.getElementById('modal-total');
+    const itemsList = document.getElementById('cart-items-list');
+    
+    // Limpiar lista
+    itemsList.innerHTML = "";
+    let count = 0;
+    total = 0;
 
-        if (cart.length > 0) {
-            // Hacemos visible el botón si hay productos
-            btn.style.display = 'flex';
-            
-            // Actualizamos la cantidad de items
-            countSpan.innerText = cart.length;
+    cart.forEach((item, index) => {
+        count += item.quantity;
+        total += (item.price * item.quantity);
+        
+        itemsList.innerHTML += `
+            <div class="cart-item">
+                <div class="cart-item-info">
+                    <strong>${item.name}</strong><br>
+                    $${item.price} x ${item.quantity}
+                </div>
+                <button onclick="removeFromCart(${index})" style="background:none; border:none; color:red; cursor:pointer;">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </div>
+        `;
+    });
 
-            // Calculamos el total
-            const totalValue = cart.reduce((sum, item) => sum + item.price, 0);
-            totalSpan.innerText = totalValue.toLocaleString(); // Formato con comas
-        } else {
-            btn.style.display = 'none';
-        }
-    }
+    cartCount.innerText = count;
+    cartTotal.innerText = total;
+    modalTotal.innerText = total;
+}
 
-    function checkout() {
-        if (cart.length === 0) return;
+function removeFromCart(index) {
+    cart.splice(index, 1);
+    updateCartUI();
+    if (cart.length === 0) toggleCart(); // Cierra si queda vacío
+}
 
-        const totalValue = cart.reduce((sum, item) => sum + item.price, 0);
-        let message = "¡Hola Coco Garra! Me interesa comprar lo siguiente:%0A%0A";
+function toggleCart() {
+    const modal = document.getElementById('cartModal');
+    modal.style.display = (modal.style.display === 'block') ? 'none' : 'block';
+}
 
-        // Agrupamos productos repetidos para que el mensaje sea claro
-        const summary = cart.reduce((acc, curr) => {
-            acc[curr.name] = (acc[curr.name] || 0) + 1;
-            return acc;
-        }, {});
+// Cambia tu botón flotante para que llame a toggleCart() en lugar de checkout() directamente
+// <button id="cart-button" onclick="toggleCart()"> ... </button>
 
-        for (const [product, qty] of Object.entries(summary)) {
-            message += `✅ ${qty}x ${product}%0A`;
-        }
+function sendWhatsApp() {
+    if (cart.length === 0) return alert("El carrito está vacío");
+    
+    let message = "¡Hola Coco Garra! Me gustaría pedir:%0A";
+    cart.forEach(item => {
+        message += `- ${item.quantity}x ${item.name} ($${item.price * item.quantity})%0A`;
+    });
+    message += `%0A*Total: $${total}*`;
+    
+    window.open(`https://wa.me/527297276189?text=${message}`, '_blank');
+}
 
         message += `%0A💰 *Total a pagar: $${totalValue}*%0A¿Me podrían dar información para el pago?`;
 
