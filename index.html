@@ -20,6 +20,10 @@
         /* Carrito Flotante */
         #cart-button { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; padding: 15px 25px; border-radius: 50px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); z-index: 1001; cursor: pointer; display: none; align-items: center; gap: 10px; font-weight: bold; border: none; }
     </style><section id="opiniones" class="reviews-section">
+     <button id="cart-button" onclick="checkout()">
+    <span>🛒 Ver Carrito (<span id="cart-count">0</span>)</span>
+    <span>Total: $<span id="cart-total">0</span></span>
+</button>
 </section>
 </head>
 <body>
