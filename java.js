@@ -1,6 +1,26 @@
 let cart = [];
 let total = 0;
+function sendWhatsApp() {
+    if (cart.length === 0) {
+        alert("Tu carrito está vacío");
+        return;
+    }
 
+    let mensaje = "¡Hola! Quisiera realizar el siguiente pedido de Coco Garra:\n\n";
+    
+    cart.forEach(item => {
+        mensaje += `✅ ${item.name} - $${item.price} x ${item.quantity}\n`;
+    });
+
+    mensaje += `\n*Total a pagar: $${total}*`;
+    mensaje += "\n\n¿Me podrían confirmar la disponibilidad?";
+
+    // Reemplaza el número con el tuyo (sin espacios ni el símbolo +)
+    const telefono = "52722XXXXXXX"; 
+    const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
+
+    window.open(url, '_blank');
+}
 function addToCart(name, price) {
     const existingProduct = cart.find(item => item.name === name);
     
