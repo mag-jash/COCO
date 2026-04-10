@@ -333,20 +333,47 @@ footer {
     font-weight: bold;
 }
 /* Estilo de video e imagen */
+/* Contenedor principal */
 .producto-container {
     display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    align-items: center;
+    flex-wrap: wrap; /* Para que en móvil se pongan uno abajo de otro */
+    gap: 20px;
+    justify-content: center;
+    align-items: stretch; /* Estira los elementos para que midan lo mismo */
 }
 
-.producto-container img {
-    width: 200px; /* Tamaño fijo más pequeño */
-    object-fit: cover;
-    border: 1px solid #ddd;
+/* Cada columna (Imagen o Video) */
+.media-item {
+    flex: 1;
+    min-width: 250px; /* Evita que se hagan demasiado flacos */
+    max-width: 350px; /* Evita que se hagan demasiado anchos */
+    height: 400px;    /* ALTURA FIJA: Aquí es donde se igualan */
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    background: #fff;
 }
 
-.producto-container video {
-    width: 350px;
+/* Estilo para imágenes dentro del item */
+.media-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* 'contain' para ver la infografía completa, 'cover' si quieres que llene todo el cuadro */
+    display: block;
 }
 
+/* Estilo para el video dentro del item */
+.media-item video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Hace que el video llene el espacio asignado */
+    background: #000;  /* Fondo negro por si el video es de otro formato */
+}
+
+/* Ajuste para celulares */
+@media (max-width: 600px) {
+    .media-item {
+        height: auto; /* En celular es mejor que recuperen su altura natural */
+        max-width: 100%;
+    }
+}
