@@ -20,24 +20,53 @@
 
 
         /* Carrito Flotante */
-    <button id="cart-button" onclick="toggleCart()">
-    <i class="fas fa-shopping-basket"></i>
-    <span><span id="cart-count">0</span> productos - $<span id="cart-total">0</span></span>
-</button>
-<div id="cartModal" class="cart-modal" style="display: none;">
+ #cart-button { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; padding: 15px 25px; border-radius: 50px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); z-index: 1001; cursor: pointer; display: none; align-items: center; gap: 10px; font-weight: bold; border: none; }
+
+         </style><section id="opiniones" class="reviews-section">
+
+     <button id="cart-button" onclick="checkout()">
+
+     <span>🛒 Ver Carrito (<span id="cart-count">0</span>)</span>
+
+    <span>Total: $<span id="cart-total">0</span></span>
+
+          <div id="cartModal" class="cart-modal">
+
     <div class="cart-content">
-        <span class="close-cart" onclick="toggleCart()">&times;</span>
+
+    <span class="close-cart" onclick="toggleCart()">&times;</span>
+
         <h2>Tu Carrito 🛒</h2>
+
         <div id="cart-items-list">
+
             </div>
+
         <hr>
-        <div style="display: flex; justify-content: space-between; font-weight: bold; margin: 15px 0;">
-            <span>Total a pagar:</span>
+
+        <div style="display: flex; justify-content: space-between; font-weight: bold; margin-top: 10px;">
+
+            <span>Total:</span>
+
             <span>$<span id="modal-total">0</span></span>
+
         </div>
-        <button class="btn-checkout" onclick="sendWhatsApp()">
-            Finalizar Pedido por WhatsApp
-        </button>
+
+        <button class="btn-checkout" onclick="sendWhatsApp()">Finalizar Pedido por WhatsApp</button>
+
+    </div>
+
+         <button id="cart-button" onclick="checkout()">
+
+        <i class="fas fa-shopping-basket"></i>
+
+        <span id="cart-count">0</span> productos - $<span id="cart-total">0</span>
+
+    </button>
+
+</div>
+
+</button>
     </div>
 </div>
 </section>
