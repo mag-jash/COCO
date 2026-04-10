@@ -16,7 +16,7 @@ function sendWhatsApp() {
     mensaje += "\n\n¿Me podrían confirmar la disponibilidad?";
 
     // Reemplaza el número con el tuyo (sin espacios ni el símbolo +)
-    const telefono = "7297276189"; 
+    const telefono = "7297276189";
     const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
 
     window.open(url, '_blank');
