@@ -11,8 +11,6 @@ function addToCart(name, price) {
     }
     
     updateCartUI();
-    
-    // Mostrar el botón flotante si hay algo
     document.getElementById('cart-button').style.display = 'flex';
 }
 
@@ -22,7 +20,6 @@ function updateCartUI() {
     const modalTotal = document.getElementById('modal-total');
     const itemsList = document.getElementById('cart-items-list');
     
-    // Limpiar lista
     itemsList.innerHTML = "";
     let count = 0;
     total = 0;
@@ -52,32 +49,31 @@ function updateCartUI() {
 function removeFromCart(index) {
     cart.splice(index, 1);
     updateCartUI();
-    if (cart.length === 0) toggleCart(); // Cierra si queda vacío
+    if (cart.length === 0) {
+        toggleCart();
+        document.getElementById('cart-button').style.display = 'none';
+    }
 }
 
 function toggleCart() {
     const modal = document.getElementById('cartModal');
-    modal.style.display = (modal.style.display === 'block') ? 'none' : 'block';
+    if (modal.style.display === 'block') {
+        modal.style.display = 'none';
+    } else {
+        modal.style.display = 'block';
+    }
 }
-
-// Cambia tu botón flotante para que llame a toggleCart() en lugar de checkout() directamente
-// <button id="cart-button" onclick="toggleCart()"> ... </button>
 
 function sendWhatsApp() {
     if (cart.length === 0) return alert("El carrito está vacío");
     
-    let message = "¡Hola Coco Garra! Me gustaría pedir:%0A";
+    let message = "¡Hola Coco Garra! Me gustaría hacer un pedido:%0A%0A";
     cart.forEach(item => {
-        message += `- ${item.quantity}x ${item.name} ($${item.price * item.quantity})%0A`;
+        message += `• ${item.quantity}x ${item.name} ($${item.price * item.quantity})%0A`;
     });
-    message += `%0A*Total: $${total}*`;
+    
+    message += `%0A💰 *Total a pagar: $${total}*`;
+    message += `%0A%0A¿Me podrían dar información para el pago?`;
     
     window.open(`https://wa.me/527297276189?text=${message}`, '_blank');
 }
-
-        message += `%0A💰 *Total a pagar: $${totalValue}*%0A¿Me podrían dar información para el pago?`;
-
-        // Abrir WhatsApp con el pedido
-        window.open(`https://wa.me/527297276189?text=${message}`, '_blank');
-    }
-</script>
