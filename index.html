@@ -52,7 +52,7 @@
             <p>Empresa innovadora dedicada a la transformación de coco para el cuidado animal.</p>
             <p>Coco Garra es una empresa cien por ciento innovadora en cuanto a la transformación y comercialización de productos del coco para especializarse en el sector de cuidado de animales domésticos. Dicho esto, el corazón de nuestra empresa es la producción de sustrato de fibra de coco de alta calidad creada para reemplazar la arena de gatos convencional.</p>
             <div class="cta-container">
-                <a href="#productos" class="btn-primary"><i class="fas fa-shopping-cart"></i> Ver Tienda</a>
+                <a href="#productos" class="btn-primary"><i class="fas fa-shopping-cart"></i> Ver carrito</a>
                 <a href="#beneficios" class="btn-outline">Ver beneficios</a>
             </div>
         </div>
@@ -147,81 +147,55 @@
     <footer>
         <p>© 2026 Coco Garra | Innovación en transformación de coco.</p>
     </footer>
-  <div class="review-form">
-        <h3>Cuéntanos tu experiencia</h3>
-        <input type="text" id="rev-name" placeholder="Tu nombre o el de tu gato">
-        <textarea id="rev-text" placeholder="¿Qué te pareció Coco Garra?"></textarea>
-        <button class="btn-add" onclick="submitReview()">Publicar Opinión</button>
+ <div class="review-form">
+    <h3>Cuéntanos tu experiencia</h3>
+    <input type="text" id="rev-name" placeholder="Tu nombre o el de tu gato">
+    <textarea id="rev-text" placeholder="¿Qué te pareció Coco Garra?"></textarea>
+    <button type="button" class="btn-add" onclick="submitReview()">Publicar Opinión</button>
+</div>
+
+<div id="reviews-container" class="reviews-grid">
+    <div class="review-card">
+        <p>"A mi gato Lucas le encantó, y lo mejor es que ya no hay polvo por toda la casa. ¡Súper recomendado!"</p>
+        <h4>- Mariana G.</h4>
     </div>
-     <div id="reviews-container" class="reviews-grid">
-        <div class="review-card">
-            <p>"A mi gato Lucas le encantó, y lo mejor es que ya no hay polvo por toda la casa. ¡Súper recomendado!"</p>
-            <h4>- Mariana G.</h4>
-        </div>
-        <div class="review-card">
-            <p>"Increíble el control de olores. Me encanta que sea biodegradable."</p>
-            <h4>- Roberto S.</h4>
-        </div>
-    <script>
-        let cart = [];
-        
-        function addToCart(name, price) {
-            cart.push({name, price});
-            updateCart();
-        }
+    <div class="review-card">
+        <p>"Increíble el control de olores. Me encanta que sea biodegradable."</p>
+        <h4>- Roberto S.</h4>
+    </div>
+</div>
 
-        function updateCart() {
-            const btn = document.getElementById('cart-button');
-            const count = document.getElementById('cart-count');
-            const total = document.getElementById('cart-total');
+<script>
+    function submitReview() {
+        // Obtenemos los elementos
+        const nameInput = document.getElementById('rev-name');
+        const textInput = document.getElementById('rev-text');
+        const container = document.getElementById('reviews-container');
+
+        // Validamos que no estén vacíos o solo con espacios
+        const name = nameInput.value.trim();
+        const text = textInput.value.trim();
+
+        if (name !== "" && text !== "") {
+            // Crear el elemento div de la tarjeta
+            const newReview = document.createElement('div');
+            newReview.className = 'review-card';
             
-            if(cart.length > 0) {
-                btn.style.display = 'flex';
-                count.innerText = cart.length;
-                const totalValue = cart.reduce((sum, item) => sum + item.price, 0);
-                total.innerText = totalValue;
-            }
-        }
+            // Usamos innerText para el contenido y evitamos inyección de código (XSS)
+            newReview.innerHTML = `<p>"${text}"</p><h4>- ${name}</h4>`;
 
-        function checkout() {
-            const totalValue = cart.reduce((sum, item) => sum + item.price, 0);
-            let message = "¡Hola Coco Garra! Me interesa comprar:%0A";
+            // Agregar al inicio con una pequeña animación si tienes CSS
+            container.prepend(newReview);
+
+            // Limpiar los campos después de publicar
+            nameInput.value = '';
+            textInput.value = '';
             
-            const summary = cart.reduce((acc, curr) => {
-                acc[curr.name] = (acc[curr.name] || 0) + 1;
-                return acc;
-            }, {});
-
-            for (const [product, qty] of Object.entries(summary)) {
-                message += `- ${qty}x ${product}%0A`;
-            }
-
-            message += `%0ATotal: $${totalValue}%0A¿Me podrían dar información para el pago?`;
-            window.open(`https://wa.me/527297276189?text=${message}`, '_blank');
+            alert("¡Gracias por tu opinión!");
+        } else {
+            alert("Por favor, llena ambos campos antes de publicar.");
         }
-        function submitReview() {
-    const name = document.getElementById('rev-name').value;
-    const text = document.getElementById('rev-text').value;
-    const container = document.getElementById('reviews-container');
-
-    if (name && text) {
-        // Crear la nueva tarjeta de opinión
-        const newReview = document.createElement('div');
-        newReview.className = 'review-card';
-        newReview.innerHTML = `<p>"${text}"</p><h4>- ${name}</h4>`;
-
-        // Agregar al inicio del contenedor
-        container.prepend(newReview);
-
-        // Limpiar campos
-        document.getElementById('rev-name').value = '';
-        document.getElementById('rev-text').value = '';
-        
-        alert("¡Gracias por tu opinión!");
-    } else {
-        alert("Por favor, llena ambos campos.");
     }
-}
-   
+</script>
 </body>
 </html>
