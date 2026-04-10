@@ -157,9 +157,20 @@ html {
 }
 
 .feature-grid { 
-    display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-    gap: 25px; 
+   .producto-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+}
+.producto-container img {
+    width: 200px; /* Tamaño fijo más pequeño */
+    object-fit: cover;
+    border: 1px solid #ddd;
+}
+.producto-container video {
+    width: 350px;
+}
 }
 .card { 
     background: var(--blanco); 
@@ -328,19 +339,4 @@ footer {
     gap: 10px; /* Espacio entre icono y texto */
     border: none;
     font-weight: bold;
-}
-/* Imagen y video */
-.producto-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    align-items: center;
-}
-.producto-container img {
-    width: 200px; /* Tamaño fijo más pequeño */
-    object-fit: cover;
-    border: 1px solid #ddd;
-}
-.producto-container video {
-    width: 350px;
 }
