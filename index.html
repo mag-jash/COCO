@@ -20,11 +20,32 @@
 
 
         /* Carrito Flotante */
-        #cart-button { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; padding: 15px 25px; border-radius: 50px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); z-index: 1001; cursor: pointer; display: none; align-items: center; gap: 10px; font-weight: bold; border: none; }
-         </style><section id="opiniones" class="reviews-section">
-     <button id="cart-button" onclick="checkout()">
-     <span>🛒 Ver Carrito (<span id="cart-count">0</span>)</span>
-    <span>Total: $<span id="cart-total">0</span></span>
+       <button id="cart-button" onclick="toggleCart()">
+    <i class="fas fa-shopping-basket"></i>
+    <span><span id="cart-count">0</span> productos - $<span id="cart-total">0</span></span>
+</button>
+
+<div id="cartModal" class="cart-modal" style="display: none;">
+    <div class="cart-content">
+        <span class="close-cart" onclick="toggleCart()">&times;</span>
+        <h2>Tu Carrito 🛒</h2>
+        
+        <div id="cart-items-list">
+            </div>
+        
+        <hr>
+        
+        <div style="display: flex; justify-content: space-between; font-weight: bold; margin: 15px 0;">
+            <span>Total a pagar:</span>
+            <span>$<span id="modal-total">0</span></span>
+        </div>
+        
+        <button class="btn-checkout" onclick="sendWhatsApp()">
+            Finalizar Pedido por WhatsApp
+        </button>
+    </div>
+</div>
+         
 </div>
 </button>
 </section>
@@ -98,18 +119,24 @@
 
 
 
-    <section id="beneficios" class="features">
-        <h2 class="section-title">Beneficios</h2>
-        <div class="feature-grid">
-            <div class="producto-container">
-              <img src=" WhatsApp Image 2026-04-09 at 7.35.34 PM.jpeg" alt="Coco Garra 10kg"> 
-              <img src=" WhatsApp Image 2026-04-09 at 9.22.58 PM.jpeg" alt="Coco Garra 10kg"> 
-              <video width="100%" controls poster="miniatura.jpg">
-              <source src="WhatsApp%20Video%202026-04-09%20at%209.22.53%20PM.mp4" type="video/mp4">
+  <section id="beneficios" class="features">
+    <h2 class="section-title">Beneficios</h2>
+    <div class="producto-container">
+        <div class="media-item">
+            <img src="WhatsApp%20Image%202026-04-09%20at%207.35.34%20PM.jpeg" alt="Coco Garra 10kg">
+        </div>
+        
+        <div class="media-item">
+            <img src="WhatsApp%20Image%202026-04-09%20at%209.22.58%20PM.jpeg" alt="Coco Garra 10kg">
+        </div>
+        
+        <div class="media-item">
+            <video controls poster="miniatura.jpg">
+                <source src="WhatsApp%20Video%202026-04-09%20at%209.22.53%20PM.mp4" type="video/mp4">
             </video>
-            </div>
-    </section>
-
+        </div>
+    </div>
+</section>
     <section id="ubicacion" class="location">
         <div class="location-card">
             <h2>Nuestra Ubicación</h2>
