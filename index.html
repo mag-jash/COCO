@@ -20,53 +20,31 @@
 
 
         /* Carrito Flotante */
-       /* Carrito Flotante */
+      <button id="cart-button" onclick="toggleCart()">
+    <i class="fas fa-shopping-basket"></i>
+    <span>🛒 Carrito (<span id="cart-count">0</span>) - $<span id="cart-total">0</span></span>
+</button>
 
-        #cart-button { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; padding: 15px 25px; border-radius: 50px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); z-index: 1001; cursor: pointer; display: none; align-items: center; gap: 10px; font-weight: bold; border: none; }
-
-         </style><section id="opiniones" class="reviews-section">
-
-     <button id="cart-button" onclick="checkout()">
-
-     <span>🛒 Ver Carrito (<span id="cart-count">0</span>)</span>
-
-    <span>Total: $<span id="cart-total">0</span></span>
-
-          <div id="cartModal" class="cart-modal">
-
+<div id="cartModal" class="cart-modal" style="display: none;">
     <div class="cart-content">
-
-    <span class="close-cart" onclick="toggleCart()">&times;</span>
-
-        <h2>Tu Carrito 🛒</h2>
-
+        <span class="close-cart" onclick="toggleCart()" style="cursor:pointer; float:right;">&times;</span>
+        <h2 style="color: var(--verde-coco);">Tu Carrito 🛒</h2>
+        
         <div id="cart-items-list">
-
             </div>
-
-        <hr>
-
-        <div style="display: flex; justify-content: space-between; font-weight: bold; margin-top: 10px;">
-
+        
+        <hr style="margin: 15px 0;">
+        
+        <div style="display: flex; justify-content: space-between; font-weight: bold; font-size: 1.2rem;">
             <span>Total:</span>
-
             <span>$<span id="modal-total">0</span></span>
-
-      
-
-         <button id="cart-button" onclick="checkout()">
-
-        <i class="fas fa-shopping-basket"></i>
-
-        <span id="cart-count">0</span> productos - $<span id="cart-total">0</span>
-
-    </button>
-
+        </div>
+        
+        <button class="contact-btn wa" onclick="sendWhatsApp()" style="width:100%; margin-top: 20px; border:none; cursor:pointer;">
+            <i class="fab fa-whatsapp"></i> Finalizar Pedido por WhatsApp
+        </button>
+    </div>
 </div>
-
-</button>
-</div>
-</button>
 </section>
 </head>
 
